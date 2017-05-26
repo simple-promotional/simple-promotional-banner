@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../polymerfire/firebase-document.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../paper-card/paper-card.html">
 
 <dom-module id="simple-promotional">
@@ -39,9 +39,11 @@
       }
     </style>
 
-    <firebase-document
-      location="https://banners-18980.firebaseio.com/images"
-      data="{{images}}"></firebase-document>
+    <iron-ajax
+    auto
+    url="https://banners-18980.firebaseio.com/images.json"
+    handle-as="json"
+    last-response="{{images}}"></iron-ajax>
 
       <div class="left-column">
       <img class="banner-image" src="http://multimedia.bbycastatic.ca/multimedia/products/1500x1500/104/10486/10486220_2.jpg" alt="">
@@ -54,19 +56,6 @@
       on select 2-year plans<br>
       <div class="carriers"><a>Shop Now</a><img src="http://images.bbycastatic.ca/sf/projects/_content/_weekly/home/applebanner/assets/carriers/koodo-logo-m.png" height="12" class="margin-xs-right"><img src="http://images.bbycastatic.ca/sf/projects/_content/_weekly/home/applebanner/assets/carriers/virgin-logo-m.png" height="16" class="margin-xs-right"></div>
     </div>
-
-    <paper-card elevation="0" id="target1Text">
-      {{images.image1.linkUrlEn}}
-    </paper-card>
-
-    <paper-card elevation="0" id="target1TextSub">
-      {{images.image1.text}}
-      <!--THIS-->
-    </paper-card>
-
-    <paper-button id="btn-primary">
-      {{images.image1.altTextEn}}
-    </paper-button>
   </template>
 
     <script>
@@ -92,13 +81,13 @@
             }
 
             static get observers() {
-              return [
-                "imagesChanged(images)"
-              ];
+                return [
+                    "imagesChanged(images)"
+                ];
             }
 
             imagesChanged(images) {
-              console.log(images);
+                console.log(images);
             }
         }
 
