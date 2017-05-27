@@ -1,6 +1,2 @@
-
-*.xml
-
-.idea/workspace.xml
-
-.idea/workspace.xml
+bower_components/
+bower_componentss/
