@@ -40,7 +40,7 @@
 
     <iron-ajax
     auto
-    url="https://simple-promotional.firebaseio.com/contentData.json"
+    url="https://cdn.contentful.com/spaces/st4fc48gu9sq/entries/[[entryId]]?access_token=e113be30e2aafd46deb5f7a6ac536d0603f1f6b7b2eb73245267b29767ab272d"
     handle-as="json"
     last-response="{{data}}"></iron-ajax>
 
@@ -48,7 +48,7 @@
       <img class="banner-image" src="http://multimedia.bbycastatic.ca/multimedia/products/1500x1500/104/10486/10486220_2.jpg" alt="">
     </div>
     <div class="right-column">
-      <h2>{{data.image1.text}}</h2>
+      <h2>{{data.fields.title}}</h2>
       <div class="carriers"><a>Shop Now</a>
       <img src="http://images.bbycastatic.ca/sf/projects/_content/_weekly/home/applebanner/assets/carriers/koodo-logo-m.png" height="12" class="margin-xs-right"><img src="http://images.bbycastatic.ca/sf/projects/_content/_weekly/home/applebanner/assets/carriers/virgin-logo-m.png" height="16" class="margin-xs-right"></div>
     </div>
@@ -70,9 +70,8 @@
             }
             static get properties() {
                 return {
-                    prop1: {
-                        type: String,
-                        value: 'simple-promotional'
+                    entryId: {
+                        type: String
                     }
                 };
             }
